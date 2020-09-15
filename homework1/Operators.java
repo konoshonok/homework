@@ -7,6 +7,7 @@ public class Operators {                            // Задание 1
         int c = -42;                    // 1 11010110
         int d = -15;                    // 1 11110001
         int e = 3;                      // 11
+
         System.out.println(~a);         // ~101010. Result = 1 11010101
         System.out.println(~b);         // ~1111. Result = 1 11110000
         System.out.println(~c);         // ~1 11010110. Result = 101001

@@ -15,6 +15,7 @@ public class Priorities {                       // Задание 2
         int k = 119;
         boolean l = true;
         boolean m = false;
+
         System.out.println(a + b / c); // Результат = 5. Деление, сложение. Тип int - дробная часть отбрасывается.
         System.out.println((a + b) / c); // Результат = 0. Скобки, деление.
         System.out.println((a + b++) / c); // Результат = 0. Сложение в скобках, инкремент в память, деление.
