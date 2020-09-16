@@ -34,5 +34,9 @@ public class CalculatorWithOperator {                   // Задание 1
         }
         return result;
     }
+
+    public double sqr(double a) {                       // добавлен для работы класса CalculatorWithCounter
+        return Math.sqrt(a);
+    }
 }
 
