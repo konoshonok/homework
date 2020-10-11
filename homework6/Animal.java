@@ -1,6 +1,6 @@
-package homework5;
+package homework6;
 
-public class Animal {                       // Задание 1.2
+public class Animal implements Comparable<Animal> {                       // Задание 1.2
     private String nick;
     private int age;
 
@@ -28,5 +28,10 @@ public class Animal {                       // Задание 1.2
     @Override
     public String toString() {
         return nick + ": " + age;
+    }
+
+    @Override
+    public int compareTo(Animal a) {
+        return this.nick.compareTo(a.nick);
     }
 }

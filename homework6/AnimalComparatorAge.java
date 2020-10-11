@@ -1,8 +1,8 @@
-package homework5;
+package homework6;
 
 import java.util.Comparator;
 
-public class ComparatorAnimalAge implements Comparator<Animal> {        // Задание 2.3
+public class AnimalComparatorAge implements Comparator<Animal> {        // Задание 2.3
 
     @Override
     public int compare(Animal a1, Animal a2) {

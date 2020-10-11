@@ -1,4 +1,4 @@
-package homework5;
+package homework6;
 
 public class Person implements Comparable<Person> {         // Задание 1.1
     private String nick;

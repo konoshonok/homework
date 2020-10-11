@@ -1,8 +1,8 @@
-package homework5;
+package homework6;
 
 import java.util.Comparator;
 
-public class ComparatorPersonPassword implements Comparator<Person> {       // Задание 2.1
+public class PersonComparatorPass implements Comparator<Person> {       // Задание 2.1
 
     @Override
     public int compare(Person p1, Person p2) {

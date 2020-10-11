@@ -1,4 +1,4 @@
-package homework5;
+package homework6;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,34 +28,16 @@ public class PersonMain1 {                                                      
         persons.add(person7);
         persons.add(person8);
 
-        System.out.println("Исходный:");
+        System.out.println("Исходный: " + persons);
 
-        for (Person person : persons) {
-            System.out.println(person);
-        }
+        Comparator passComp = new PersonComparatorPass();
+        Collections.sort(persons, passComp);
 
-        System.out.println("_____________________________________");
+        System.out.println("По длине пароля: " + persons);
 
-        Comparator passLengthComp = new ComparatorPersonPassword();
-        Collections.sort(persons, passLengthComp);
+        Comparator passAndNickComp = new PersonComparatorPassAndNick();
+        Collections.sort(persons, passAndNickComp);
 
-        System.out.println("По длине пароля:");
-
-        for (Person person : persons) {
-            System.out.println(person);
-        }
-
-        System.out.println("_____________________________________");
-
-        Comparator passNickComp = new ComparatorPersonPassword().thenComparing(new ComparatorPersonNick());
-        Collections.sort(persons, passNickComp);
-
-        System.out.println("По длине пароля и имени:");
-
-        for (Person person : persons) {
-            System.out.println(person);
-        }
-
-        System.out.println("_____________________________________");
+        System.out.println("По длине пароля и нику: " + persons);
     }
 }

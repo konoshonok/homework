@@ -1,11 +1,11 @@
-package homework5;
+package homework6;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class AnimalMain {                                   // Задание 2.99
+public class AnimalMain1 {                                   // Задание 2.99
     public static void main(String[] args) {
 
         Animal pet1 = new Animal("Tuzik", 7);
@@ -30,13 +30,13 @@ public class AnimalMain {                                   // Задание 2.
 
         System.out.println("Исходный: " + pets);
 
-        Comparator petsAgeComp = new ComparatorAnimalAge();
-        Collections.sort(pets, petsAgeComp);
+        Comparator ageComp = new AnimalComparatorAge();
+        Collections.sort(pets, ageComp);
 
         System.out.println("По возрасту: " + pets);
 
-        Comparator ageNickComp = new ComparatorAnimalAge().thenComparing(new ComparatorAnimalNick());
-        Collections.sort(pets, ageNickComp);
+        Comparator ageAndNickComp = new AnimalComparatorAgeAndNick();
+        Collections.sort(pets, ageAndNickComp);
 
         System.out.println("По возрасту и кличке: " + pets);
     }

@@ -1,4 +1,4 @@
-package homework5;
+package usefulFeatures;
 
 import java.util.Random;
 
