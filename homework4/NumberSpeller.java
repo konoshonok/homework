@@ -14,7 +14,7 @@ public class NumberSpeller {
     private static final String[] textFrom10To19 = {"десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семьнадцать", "восемнадцать", "девятнадцать"};
     private static final String[] textUnits = {"", "од", "дв", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"};
 
-    private static int number;                       // Число для спеллинга
+    private static int number;                       // Число, которое нужно преобразовать
     private static int numberMax = 999_999_999;
     private static int millions;
     private static int thousands;
@@ -22,7 +22,7 @@ public class NumberSpeller {
     private static int hundreds;
     private static int tens;
     private static int units;
-    private static int indexN;
+    private static int indexN;                       // Индекс строки массива "textMillionsAndThousands"
 
     private static String spelledNum;                // Число прописью
 
@@ -34,6 +34,7 @@ public class NumberSpeller {
      */
     public static String spellIt(int n) {
         number = n;
+        spelledNum = "";
 
         if (number < -numberMax || number > numberMax) {
             return "Число выходит за пределы допустимых границ";
@@ -48,6 +49,7 @@ public class NumberSpeller {
             return "ноль";
         }
 
+        // Деление числа на степени и разряды
         millions = number / 1000000;
         thousands = (number - millions * 1000000) / 1000;
         toThousands = number % 1000;
@@ -55,7 +57,8 @@ public class NumberSpeller {
         tens = (number - millions * 1000000 - thousands * 1000 - hundreds * 100) / 10;
         units = number % 10;
 
-        spelledNum = toThousandSpeller(millions, 2) + toThousandSpeller(thousands, 1) + toThousandSpeller(toThousands, 0);
+        // Формирование числа прописью
+        spelledNum = spelledNum + toThousandSpeller(millions, 2) + toThousandSpeller(thousands, 1) + toThousandSpeller(toThousands, 0);
 
         return spelledNum;
     }
@@ -71,16 +74,14 @@ public class NumberSpeller {
         tens = (numericValue - hundreds * 100) / 10;
         units = numericValue % 10;
 
-        // Формируем число до 1000
-
+        // Формирование числа без степени (до 1000)
         if (tens == 1) {
             spelledNum = textHundreds[hundreds] + textFrom10To19[units];
         } else {
             spelledNum = textHundreds[hundreds] + textTens[tens] + textUnits[units];
         }
 
-        // Формируем окончания единиц
-
+        // Формирование окончаний единиц
         if (index == 1) {
             if (units == 1 && tens != 1) {
                 spelledNum = spelledNum + "на ";
@@ -97,9 +98,8 @@ public class NumberSpeller {
             spelledNum = spelledNum + " ";
         }
 
-        // Формируем окончания степеней числа
-
-        indexN = 0;     // индекс строки массива "textMillionsAndThousands"
+        // Формирование окончаний степеней числа
+        indexN = 0;
 
         if (numericValue != 0) {
             if (units == 1 && tens != 1) {
@@ -111,6 +111,7 @@ public class NumberSpeller {
             }
         }
 
+        // Конкатенация степеней числа
         spelledNum = spelledNum + textMillionsAndThousands[indexN][index];
 
         return spelledNum;
